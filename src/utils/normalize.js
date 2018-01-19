@@ -5,14 +5,13 @@ import getAllFields from './getAllFields'
 * @data data from the backend
 */
 export default function normalize(desc, data) {
-    const result = {}
+    const result = desc.normalize(data)
+
     getAllFields(desc).forEach((f) => {
         if (f.normalize) {
-            result[f.name] = f.normalize(f.getValue(data))
+            result[f.name] = f.normalize(f.getValue(result))
         }
     })
-    if (desc.normalize) {
-        return desc.normalize(result)
-    }
+    
     return result
 }
