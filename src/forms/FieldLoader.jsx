@@ -86,7 +86,7 @@ class FieldLoader extends React.Component {
         }
 
         // Extend the descriptor asynchronously
-        const descPromise = Promise.resolve(this.props.desc.lazy())
+        const descPromise = Promise.resolve(this.props.desc.lazy.apply(this.props))
         descPromise.then(asyncDesc => this.setState(asyncDesc))
 
         watch('reload', (props) => {
