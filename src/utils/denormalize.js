@@ -6,8 +6,12 @@ import getAllFields from './getAllFields'
 */
 export default function denormalize(desc, data) {
     const result = {}
+
     getAllFields(desc).forEach((f) => {
-        result[f.name] = f.denormalize(data[f.name])
+        if (f.denormalize) {
+            result[f.name] = f.denormalize(data[f.name])
+        }
     })
+
     return desc.denormalize(result)
 }
