@@ -50,6 +50,7 @@ import wrapComponent from './utils/wrapComponent'
 import validateAdmin from './utils/validateAdmin'
 import Request from './Request'
 import baseField from './fields/base/baseField'
+import fields from './fields'
 import simpleViewSchema from './admin-schema/simpleView'
 
 import DevTools from './containers/DevTools'
@@ -76,7 +77,7 @@ export const context = createContext(contextData)
 export const path = {}
 
 
-export { baseField }
+export { baseField, fields }
 
 export function setStore(newStore) {
     store = newStore
